@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+	
+	<display-name>day19</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<servlet>
+		<servlet-name>HelloServlet</servlet-name>
+		<servlet-class>day19.HelloServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HelloServlet</servlet-name>
+		<url-pattern>/hello/</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>NowServlet</servlet-name>
+		<servlet-class>day19.NowServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NowServlet</servlet-name>
+		<url-pattern>/now/</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>LifeCycleServlet</servlet-name>
+		<servlet-class>day19.LifeCycleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LifeCycleServlet</servlet-name>
+		<url-pattern>/lifeCycle/</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>day19.Login</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/quiz/</url-pattern>
+	</servlet-mapping>
+	
+	<resource-ref>
+		<description>ConnectionPool</description>
+		<res-ref-name>jdbc/oracle</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+</web-app>
