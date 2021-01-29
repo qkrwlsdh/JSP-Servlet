@@ -26,8 +26,10 @@ public class LoginActionImpl implements CommandAction {
 		HttpSession session = request.getSession();
 		session.setAttribute("login", dto);
 		request.setAttribute("loginFail", dto == null);
-		
-		return "index";
+//		response.sendRedirect(request.getContextPath());	// %{cpath }
+//		return "index";
+//		return null;	// redirect
+		return "redirect:/";
 	}
 
 }

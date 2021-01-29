@@ -109,15 +109,19 @@ public class FrontController extends HttpServlet {
 			throw new ServletException(e);
 		}
 		
-		if(viewPage != null) {
+		if(viewPage != null) {	// viewPage가 null이 아니면 포워드 (null이면 forward를 수행하지 않는다)
+			if(viewPage.indexOf("redirect:") == 0) {
+				String location = request.getContextPath() + viewPage.split(":")[1];
+				response.sendRedirect(location);
+			}
+		else {
 			viewPage = prefix + viewPage + suffix;
 			RequestDispatcher rd = request.getRequestDispatcher(viewPage);
 			System.out.println(command + " : " + request.getMethod());
 			System.out.println(action.getClass().getSimpleName());
 			System.out.println(viewPage + "\n");
 			rd.forward(request, response);
+			}
 		}
 	}
-	
-	
 }
