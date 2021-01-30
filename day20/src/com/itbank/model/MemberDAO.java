@@ -102,7 +102,33 @@ public class MemberDAO {
 			e.printStackTrace();
 		}finally {close();}
 		
-	return null;
+		return null;
+	}
+
+	public MemberDTO findId(MemberDTO dto) {
+		MemberDTO find = new MemberDTO();
+		String sql = "select * from member2 where username = ? and email = ?";
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getUsername());
+			pstmt.setString(2, dto.getEmail());
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				find.setUserid(rs.getString("userid"));
+				find.setEmail(rs.getString("email"));
+				find.setUsername(rs.getString("username"));
+				return find;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return null;
 	}
 }
 

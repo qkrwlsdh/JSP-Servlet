@@ -26,7 +26,21 @@
 
 <ul>
 	<li><a href="${cpath }/login">ex01 - login</a></li>
+	<li><a href="${cpath }/board?page=1">ex02 - board</a></li>
+	<c:if test="${login != null }">
+		<li><a href="${cpath }/logout">ex03 - logout</a></li>
+	</c:if>
 </ul>
+
+
+<script type="text/javascript">
+	const find = ${requestScope.find};
+	
+	if(find){
+		alert('성공');
+		location.replace('${cpath}/index');
+	}
+</script>
 
 <script type="text/javascript">
 	const loginFail = ${requestScope.loginFail};
