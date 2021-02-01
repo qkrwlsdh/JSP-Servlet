@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ApplicationContext.xml -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		 http://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+		<bean id="greet" class="day21.Greeting">
+			<property name="format" value="Hi, %s"/>
+			<!-- greet.setFormat("Hi, %s"); -->
+			
+			<!-- <constructor-arg></constructor-arg> -->
+			<!-- 객체를 생성하면서 생성자에 매개변수를 ? -->
+		</bean>
+		<bean id="ds" class="org.apache.commons.dbcp2.BasicDataSource">
+			<!-- 생성자 매개변수로 값을 넣어야 한다면, <constructor-arg> -->
+			<!-- setter 메서드로 값을 넣어야 한다면, <property> -->
+			<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+			<property name="url" value="jdbc:oracle:thin:@localhost:32118:xe"/>
+			<property name="username" value="c##itbank"/>
+			<property name="password" value="it"/>
+			<property name="maxTotal" value="20"/>
+			<property name="maxIdle" value="10"/>
+			<property name="maxWaitMillis" value="-1"/>
+		</bean>
+</beans>
