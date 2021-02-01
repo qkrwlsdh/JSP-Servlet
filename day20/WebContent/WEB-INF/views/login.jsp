@@ -13,12 +13,16 @@
 		사용자 이름과 email을 입력받아서, 일치하는 ID가 있으면
 		ID를 자바스크립트로 팝업으로 출력하기
 --%>
-<a href="${cpath }/renewPassword">PW 재발급</a>
+ &nbsp;|&nbsp;
+<a href="${cpath }/renewPw">PW 재발급</a>
 <%--
 		사용자 이름과 email과 id를 입력받으면
 		12글자의 랜덤한 문자열로 비밀번호를 재발급하고,
 		이후 로그인이 가능해야 한다 (Hash 내용을 잘 생각해서 만들기)
 --%>
+<c:if test="${not empty requestScope.renew }">
+	<h2><b>${requestScope.renew }</b></h2>
+</c:if>
 
 <script type="text/javascript">
 	const check = ${requestScope.find != null};

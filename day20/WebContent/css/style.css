@@ -153,7 +153,7 @@ main {
 	flex-flow: column;
 }
 .viewBoard input[type="text"],
-
+.viewBoard input[type="email"],
 .viewBoard textarea {
 	all: unset;
 	border: 0;
@@ -191,11 +191,11 @@ main {
 	justify-content: space-between;
 	width: 400px;
 }
-select, input[type="text"], input[type="password"] {
+select, input[type="text"], input[type="password"], input[type="email"] {
 	height: 30px;
 	border: 1px solid black;
 }
-input[type="text"]{
+input[type="text"], input[type="email"]{
 	height: 26px;
 	padding-left: 5px;
 }

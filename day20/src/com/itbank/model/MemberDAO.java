@@ -130,6 +130,57 @@ public class MemberDAO {
 		}
 		return null;
 	}
+
+	public int renewPw(MemberDTO user) {
+//		MemberDTO renew = new MemberDTO();
+		String sql = "update member2 set userpw = ? where userid = ? and username = ?" +
+				" and email = ?";
+		int row = 0;
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			String pw = "";
+			for(int i = 0; i < 12; i++) {
+				pw += (char)((Math.random()* 26)) + 97;
+				pstmt.setString(1, Hash.getHash(pw));
+			}
+			pstmt.setString(2, user.getUserid());
+			pstmt.setString(3, user.getUsername());
+			pstmt.setString(4, user.getEmail());
+			row = pstmt.executeUpdate();
+			System.out.println("pw : " + pw);
+			return row;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return 0;
+	}
+
+	public int updatePassword(MemberDTO dto) {
+		String sql = "update member2 set userpw=? where userid=? and username=? and email=?";
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getUserpw());
+			pstmt.setString(2, dto.getUserid());
+			pstmt.setString(3, dto.getUsername());
+			pstmt.setString(4, dto.getEmail());
+			int row = pstmt.executeUpdate();
+			
+			return row;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return 0;
+	}
 }
 
 
