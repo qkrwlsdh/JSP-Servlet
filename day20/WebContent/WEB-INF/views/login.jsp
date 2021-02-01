@@ -20,15 +20,12 @@
 		12글자의 랜덤한 문자열로 비밀번호를 재발급하고,
 		이후 로그인이 가능해야 한다 (Hash 내용을 잘 생각해서 만들기)
 --%>
-<c:if test="${not empty requestScope.renew }">
-	<h2><b>${requestScope.renew }</b></h2>
-</c:if>
 
 <script type="text/javascript">
 	const check = ${requestScope.find != null};
 	
 	if(check){
-		alert('${requestScope.find.userid }');
+		alert('${requestScope.find.username}님의 ID : ${requestScope.find.userid }');
 		location.replace('${cpath}/login');
 	}
 </script>
