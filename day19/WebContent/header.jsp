@@ -2,7 +2,7 @@
     pageEncoding="UTF-8" import="member2.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="cpath" value="${pageContext.request.contextPath }" />
-<c:set var="memberDAO" value="<%=MemberDAO.getInstance() %>" scope="application" />
+<c:set var="memberDAO" value="<%=MemberDAO.getInstance()%>" scope="application" />
 <%request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
 <html>
